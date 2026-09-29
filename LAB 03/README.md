@@ -1,38 +1,61 @@
-# C Programming and OS Interaction
+# LAB 03: Investigating Process Lifecycles and OS Interaction
 
-Lab exploring how C programs interact with the OS — processes, PID/PPID, exit codes, I/O streams, and control flow — using the Linux shell.
+## Introduction
 
-## Tasks
+This lab focuses on understanding how C programs interact with the Linux operating system. The practical work demonstrates process execution, process identification, exit codes, standard input/output, and conditional process control.
 
-| Task | Description | Source |
-|------|-------------|--------|
-| 1 | Long-Running Process — loop with `sleep()`, run in background & foreground | `task1_slow.c` |
-| 2 | Process Identity — get/print PID and PPID via `getpid()`/`getppid()` | `task2_identity.c` |
-| 3 | Exit Codes and OS Feedback — return success/failure codes, check via `$?` | `task3_exit.c` |
-| 4 | Standard I/O Streams — `scanf`/`printf` for stdin/stdout | `task4_input.c` |
-| 5 | Conditional Execution and Control Flow | `task5_control.c` |
+## Objectives
 
-## Build & Run
+* Understand basic process management in Linux.
+* Create and monitor a long-running process.
+* Identify a process using PID and PPID.
+* Understand program exit codes and OS feedback.
+* Work with standard input and output.
+* Implement conditional execution and process termination.
+
+## Lab Tasks
+
+| Task  | Description                                                   | Source File        |
+| ----- | ------------------------------------------------------------- | ------------------ |
+| **1** | Long-running process using `sleep()` and background execution | `task1_alive.c`    |
+| **2** | Process identity using `getpid()` and `getppid()`             | `task2_identity.c` |
+| **3** | Exit codes and status verification using `echo $?`            | `task3_exit.c`     |
+| **4** | Standard I/O using `scanf()` and `printf()`                   | `task4_input.c`    |
+| **5** | Conditional execution and process termination                 | `task5_control.c`  |
+
+## Process Verification
+
+Processes were compiled and executed using GCC. Linux commands were used to monitor and verify process behavior.
 
 ```bash
-gcc taskN_name.c -o taskN
-./taskN
-```
-
-Run in background:
-```bash
+gcc task1_alive.c -o task1
 ./task1 &
 ps aux | grep task1
 ```
 
-Check exit code:
+Program exit status was checked using:
+
 ```bash
 ./task3
 echo $?
 ```
 
-## Requirements
-- Linux shell (Ubuntu/Debian recommended)
-- GCC compiler
+## Key Concepts
 
-## Repo Structure
+* **PID:** Identifies a running process.
+* **PPID:** Identifies the parent process.
+* **Exit Code:** Reports the program's termination status to the operating system.
+* **stdin/stdout:** Standard input and output streams used for program interaction.
+* **Process Control:** Managing program execution based on conditions and user input.
+
+## Tools Used
+
+* Ubuntu Linux
+* GCC Compiler
+* Bash Shell
+* C Programming Language
+
+## Conclusion
+
+This lab provided practical experience with Linux process management and demonstrated how C programs interact with the operating system through process identification, execution control, standard I/O, and exit status.
+
