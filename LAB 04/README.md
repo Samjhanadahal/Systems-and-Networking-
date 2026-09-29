@@ -1,53 +1,78 @@
-cat > "LAB 04/README.md" <<'EOF'
 # LAB 04: Data Types and OS Memory Management
 
 ## Introduction
 
-This laboratory focuses on understanding data types, pointers, and memory management in a C program. The experiments were performed using the C programming language in an Ubuntu Linux environment.
-
-The practical activities demonstrate the memory size of different C data types, the use of pointers and dynamic memory allocation, and the organization of major memory segments of a running process.
-
-These experiments help to understand how C programs use memory and how the operating system manages different areas of process memory.
+This lab focuses on understanding data types, pointers, dynamic memory allocation, and process memory organization in C. Three programs were developed and executed using Ubuntu and GCC.
 
 ## Objectives
 
-The main objectives of this laboratory are:
+1. Determine the size of common C data types using `sizeof()`.
+2. Understand pointers and memory addresses.
+3. Demonstrate dynamic memory allocation using `malloc()`.
+4. Understand the basic organization of process memory.
 
-- To determine the memory size of commonly used C data types using the `sizeof()` operator.
-- To understand the concept and use of pointers in C.
-- To demonstrate dynamic memory allocation using heap memory.
-- To understand the major memory segments of a process.
-- To observe the Data, BSS, Heap, and Stack segments through a C program.
-- To develop a practical understanding of how C programs interact with memory managed by the operating system.
+## Programs
 
-## Experiments
+### 1. `datatype_size.c`
 
-### Experiment 1: Data Type Size
+Displays the size of common C data types using `sizeof()`.
 
-This program demonstrates the memory size occupied by different C data types using the `sizeof()` operator.
+### 2. `pointer_memory.c`
 
-**Program:** `datatype_size.c`
+Demonstrates pointers, memory addresses, and dynamic memory allocation using `malloc()` and `free()`.
 
-### Experiment 2: Pointer and Dynamic Memory
+### 3. `memory_segments.c`
 
-This program demonstrates the use of pointers and dynamic memory allocation and shows how dynamically allocated memory is accessed through pointers.
+Displays addresses of global, static, local, heap, and function data to demonstrate process memory organization.
 
-**Program:** `pointer_memory.c`
+## Memory Segments
 
-### Experiment 3: Process Memory Segments
+* **Text:** Stores program instructions.
+* **Data:** Stores initialized global and static variables.
+* **BSS:** Stores uninitialized global and static variables.
+* **Heap:** Stores dynamically allocated memory.
+* **Stack:** Stores local variables and function-related data.
 
-This program demonstrates the major memory segments of a process, including Data, BSS, Heap, and Stack, and displays their memory addresses.
+## Commands Used
 
-**Program:** `memory_segments.c`
+```bash
+gcc datatype_size.c -o datatype_size
+./datatype_size
+
+gcc -Wall -Wextra pointer_memory.c -o pointer_memory
+./pointer_memory
+
+gcc -Wall -Wextra memory_segments.c -o memory_segments
+./memory_segments
+```
+
+## Results
+
+* Common data type sizes were successfully displayed.
+* Pointer addresses and dynamically allocated memory were successfully demonstrated.
+* Different process memory areas were observed through variable and function addresses.
+* Memory addresses may change between executions due to ASLR.
 
 ## Environment
 
-- **Operating System:** Ubuntu Linux
-- **Programming Language:** C
-- **Compiler:** GCC
-- **Architecture:** 64-bit
+* Ubuntu Linux (WSL)
+* C Programming Language
+* GCC Compiler
+* GNU Nano
+* 64-bit system
+
+## Files
+
+```text
+LAB 04/
+├── README.md
+├── datatype_size.c
+├── pointer_memory.c
+├── memory_segments.c
+└── Data Types and OS Memory Management.docx
+```
 
 ## Conclusion
 
-This laboratory provides practical knowledge of data types, pointers, dynamic memory allocation, and process memory organization. The experiments demonstrate how different types of data are stored in memory and how different memory regions are used by a running C program.
-EOF
+The laboratory provided practical understanding of data types, pointers, dynamic memory allocation, and process memory organization in C.
+
